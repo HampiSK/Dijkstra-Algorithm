@@ -123,7 +123,7 @@ edges Matrix::ShortestPath(const size_t& START, const size_t& END)
         for(const auto & EDGE : _dataEdges[U_NODE])
         {
             const size_v E_INDEX = Matrix::GetKeyIndex(EDGE); // Index of current edge              
-            const float WEIGHT = _dataWeights[std::make_pair(EDGE,U_NODE)]; // Weight between vertex and edge
+            const float WEIGHT = Matrix::_dataWeights[std::make_pair(EDGE,U_NODE)]; // Weight between vertex and edge
             // Alternative path, when distance between current edge and vertex is nan set to weight, sum weight with distance otherwise   
             const float ALT = std::isnan(distances[U_INDEX]) ? WEIGHT : distances[U_INDEX] + WEIGHT;
             // When vertex distance is nan set it to higher value than alternative path (NAN is 0, but in this context needs to be higher),
