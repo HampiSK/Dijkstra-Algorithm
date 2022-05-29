@@ -20,12 +20,12 @@ edges Matrix::CreatePath(const std::vector<float>& PATH, const size_t& END)
     return shortestPath.size() == 1 ? edges() : shortestPath; // Vector with shortest path from end to start
 }  
 
-void Matrix::PrintHeader(std::vector<size_t>& keys, const std::string& tableType)              
+void Matrix::PrintHeader(std::vector<size_t>& keys, const std::string& TABLE_TYPE)              
 {                
     for(const auto & CONTENTS : Matrix::_dataEdges) // Fill vector with keys from Adjacency Matrix
         keys.push_back(CONTENTS.first);     
 
-    std::cout<<"MATRIX "<< tableType <<" TABLE\nVERTICES";
+    std::cout<<"MATRIX "<< TABLE_TYPE <<" TABLE\nVERTICES";
     sort(keys.begin(),keys.end());          
 
     for(const auto & KEY : keys) // Print keys as a header 
@@ -33,7 +33,7 @@ void Matrix::PrintHeader(std::vector<size_t>& keys, const std::string& tableType
     std::cout<<"\n";                        
 }  
 
-void Matrix::PrintBody(const std::vector<size_t>& KEYS, const bool displayConnections) // displayConnections -> Optional: true
+void Matrix::PrintBody(const std::vector<size_t>& KEYS, const bool DISPLAY_CONNECTIONS) // DISPLAY_CONNECTIONS -> Optional: true
 {
     for(const auto & KEY : KEYS) // Using KEY as key for Adjacency Matrix
     {
@@ -50,7 +50,7 @@ void Matrix::PrintBody(const std::vector<size_t>& KEYS, const bool displayConnec
         {
             if(edgesList[edge] == KEYS[vertex]) // When equal, it means that they are connected, thus we print 1
             {
-                if(displayConnections)
+                if(DISPLAY_CONNECTIONS)
                     std::cout<<"\t1";
                 else
                     std::cout<<'\t'<<Matrix::_dataWeights[std::make_pair(edgesList[edge],KEY)];
@@ -79,13 +79,6 @@ Matrix::Matrix(const size_t& VERTICES) // Default param: 0
         Matrix::_dataEdges[i] = edges();   
     }      
 }  
-
-Matrix::~Matrix()
-{ 
-    #ifdef DEBUG    
-    std::cout<<"Matrix destructor called"<<std::endl; 
-    #endif // DEBUG
-}
 
 void Matrix::Add(const size_t& VERTEX_KEY)
 {
