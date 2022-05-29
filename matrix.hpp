@@ -1,6 +1,6 @@
 #pragma once
 
-#include "/pch.hpp"
+#include "pch.hpp"
 
 /**
  * Implementation of a weighted adjacency matrix structure
@@ -62,19 +62,19 @@ class Matrix
          * - Print table
          * @param [std::string] {tableType} - table type
          **/
-        void Print(const std::string& type);
+        void Print(const std::string& TYPE);
         /**
          * - Sub-method for Print() which handles printing header and updating vector with keys
          * @param [std::vector<int>] {keys} - vector to be updated with keys
          * @param [std::string] {tableType} - table type
          **/
-        void PrintHeader(std::vector<size_t>& keys, const std::string& tableType);
+        void PrintHeader(std::vector<size_t>& keys, const std::string& TABLE_TYPE);
         /**
          * - Sub-method for Print() which handles printing body of table
          * @param [std::vector<int>] {keys} - Sorted keys vector
          * @param [bool] {displayConnections} - table type
          **/        
-        void PrintBody(const std::vector<size_t>& KEYS, const bool displayConnections = true);
+        void PrintBody(const std::vector<size_t>& KEYS, const bool DISPLAY_CONNECTIONS = true);
         /**
          * - Check if key is in matrix
          * @param [unsigned int] {KEY} - Key to check
