@@ -27,16 +27,16 @@ struct pairhash
     }
 };
 
-typedef std::unordered_map<uint32_t,std::vector<uint32_t>> matrix; // Adjacency Matrix
-typedef std::vector<uint32_t> edges;                               // Vector of edges
-typedef std::vector<uint32_t>::size_type size_v;                   // Using for vector iteration
-typedef std::pair<uint32_t,uint32_t> connection;                   // Connection between vertex and edge
-typedef std::unordered_map<connection,float,pairhash> weightrix;   // Map with weights
-typedef std::pair<float,uint32_t> weightpair;
+typedef std::unordered_map<size_t,std::vector<size_t>> matrix; // Adjacency Matrix
+typedef std::vector<size_t> edges; // Vector of edges
+typedef std::vector<size_t>::size_type size_v; // Using for vector iteration
+typedef std::pair<size_t,size_t> connection; // Connection between vertex and edge
+typedef std::unordered_map<connection,float,pairhash> weightrix; // Map with weights
+typedef std::pair<float,size_t> weightpair;
 
 // Using custom hash with paired and sorted elements using weight:vertex relation
 // Sorting depends on weight values and it is sorted from smallest
 typedef std::priority_queue<weightpair,std::vector<weightpair>,std::greater<weightpair>> weight_queue;
 
 // Contains adjecency list with dijkstra implementation
-#include "adjacency_list.hpp"
+#include "matrix.hpp"
